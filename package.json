@@ -1,9 +1,9 @@
 {
-    "name": "fuse-angular",
-    "version": "21.0.0",
-    "description": "Fuse - Angular Admin Template and Starter Project",
-    "author": "https://themeforest.net/user/srcn",
-    "license": "https://themeforest.net/licenses/standard",
+    "name": "comunidadfly",
+    "version": "1.0.0",
+    "description": "Comunidad Fly sitio web",
+    "author": "Pachedev <contact@pache.dev> (https://pachedev.com)",
+    "license": "UNLICENSED",
     "private": true,
     "scripts": {
         "ng": "ng",

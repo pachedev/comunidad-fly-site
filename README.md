@@ -1,4 +1,21 @@
-# Fuse - Admin template and Starter project for Angular
+# 🎮 Pokémon GO Community
+
+Welcome to **Pokémon GO Community**, a website where you can find real-time event schedules, coordinates, and news about the world of **Pokémon GO**.
+
+## 🌟 Features
+
+- ⏰ **Real-time schedules** for various events.
+- 📍 **Coordinates** for field missions, invasions, and raids.
+- 🧩 **Tips and strategies** to enhance your gameplay.
+- 📰 **Updated news** about Pokémon GO.
+
+## 🚀 Technologies
+
+This project is built with:
+
+- **Angular**
+- **Angular Material**
+- **TailwindCSS**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
