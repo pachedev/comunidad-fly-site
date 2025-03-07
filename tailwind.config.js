@@ -12,7 +12,10 @@ const generatePalette = require(
  * Tailwind-like color palettes automatically
  */
 const customPalettes = {
-	brand: generatePalette('#172b4d'),
+    brand: generatePalette('#172b4d'),
+    valor: generatePalette('#ff0000'),
+    mystic: generatePalette('#0175f2'),
+    instinct: generatePalette('#ffd700')
 };
 
 /**
@@ -22,8 +25,8 @@ const themes = {
     // Default theme is required for theming system to work correctly!
     default: {
         primary: {
-            ...colors.indigo,
-            DEFAULT: colors.indigo[600],
+            ...customPalettes.brand,
+            DEFAULT: customPalettes.brand[600],
         },
         accent: {
             ...colors.slate,
@@ -39,27 +42,15 @@ const themes = {
     },
     // Rest of the themes will use the 'default' as the base
     // theme and will extend it with their given configuration.
-    brand: {
-        primary: customPalettes.brand,
+    valor: {
+        primary: customPalettes.valor,
     },
-    teal: {
-        primary: {
-            ...colors.teal,
-            DEFAULT: colors.teal[600],
-        },
+    mystic: {
+        primary: customPalettes.mystic,
     },
-    rose: {
-        primary: colors.rose,
-    },
-    purple: {
-        primary: {
-            ...colors.purple,
-            DEFAULT: colors.purple[600],
-        },
-    },
-    amber: {
-        primary: colors.amber,
-    },
+    instinct: {
+        primary: customPalettes.instinct,
+    }
 };
 
 /**

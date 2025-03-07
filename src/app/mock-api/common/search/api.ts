@@ -4,8 +4,6 @@ import {
     FuseNavigationService,
 } from '@fuse/components/navigation';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
-import { contacts } from 'app/mock-api/apps/contacts/data';
-import { tasks } from 'app/mock-api/apps/tasks/data';
 import { defaultNavigation } from 'app/mock-api/common/navigation/data';
 import { cloneDeep } from 'lodash-es';
 
@@ -13,8 +11,6 @@ import { cloneDeep } from 'lodash-es';
 export class SearchMockApi {
     private readonly _defaultNavigation: FuseNavigationItem[] =
         defaultNavigation;
-    private readonly _contacts: any[] = contacts;
-    private readonly _tasks: any[] = tasks;
 
     /**
      * Constructor
@@ -55,11 +51,6 @@ export class SearchMockApi {
                     return [200, { results: [] }];
                 }
 
-                // Filter the contacts
-                const contactsResults = cloneDeep(this._contacts).filter(
-                    (contact) => contact.name.toLowerCase().includes(query)
-                );
-
                 // Filter the navigation
                 const pagesResults = cloneDeep(flatNavigation).filter(
                     (page) =>
@@ -67,32 +58,10 @@ export class SearchMockApi {
                         (page.subtitle && page.subtitle.includes(query))
                 );
 
-                // Filter the tasks
-                const tasksResults = cloneDeep(this._tasks).filter((task) =>
-                    task.title.toLowerCase().includes(query)
-                );
 
                 // Prepare the results array
                 const results = [];
 
-                // If there are contacts results...
-                if (contactsResults.length > 0) {
-                    // Normalize the results
-                    contactsResults.forEach((result) => {
-                        // Add a link
-                        result.link = '/apps/contacts/' + result.id;
-
-                        // Add the name as the value
-                        result.value = result.name;
-                    });
-
-                    // Add to the results
-                    results.push({
-                        id: 'contacts',
-                        label: 'Contacts',
-                        results: contactsResults,
-                    });
-                }
 
                 // If there are page results...
                 if (pagesResults.length > 0) {
@@ -107,25 +76,6 @@ export class SearchMockApi {
                         id: 'pages',
                         label: 'Pages',
                         results: pagesResults,
-                    });
-                }
-
-                // If there are tasks results...
-                if (tasksResults.length > 0) {
-                    // Normalize the results
-                    tasksResults.forEach((result) => {
-                        // Add a link
-                        result.link = '/apps/tasks/' + result.id;
-
-                        // Add the title as the value
-                        result.value = result.title;
-                    });
-
-                    // Add to the results
-                    results.push({
-                        id: 'tasks',
-                        label: 'Tasks',
-                        results: tasksResults,
                     });
                 }
 

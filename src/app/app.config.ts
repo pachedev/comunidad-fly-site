@@ -92,31 +92,23 @@ export const appConfig: ApplicationConfig = {
                     lg: '1280px',
                     xl: '1440px',
                 },
-                theme: 'theme-brand',
+                theme: 'theme-default',
                 themes: [
                     {
                         id: 'theme-default',
                         name: 'Default',
                     },
                     {
-                        id: 'theme-brand',
-                        name: 'Brand',
+                        id: 'theme-valor',
+                        name: 'Valor',
                     },
                     {
-                        id: 'theme-teal',
-                        name: 'Teal',
+                        id: 'theme-mystic',
+                        name: 'Mystic',
                     },
                     {
-                        id: 'theme-rose',
-                        name: 'Rose',
-                    },
-                    {
-                        id: 'theme-purple',
-                        name: 'Purple',
-                    },
-                    {
-                        id: 'theme-amber',
-                        name: 'Amber',
+                        id: 'theme-instinct',
+                        name: 'Instinto',
                     },
                 ],
             },

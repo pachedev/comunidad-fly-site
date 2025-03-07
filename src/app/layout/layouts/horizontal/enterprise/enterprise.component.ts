@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
@@ -15,7 +15,6 @@ import { Navigation } from 'app/core/navigation/navigation.types';
 import { LanguagesComponent } from 'app/layout/common/languages/languages.component';
 import { MessagesComponent } from 'app/layout/common/messages/messages.component';
 import { NotificationsComponent } from 'app/layout/common/notifications/notifications.component';
-import { QuickChatComponent } from 'app/layout/common/quick-chat/quick-chat.component';
 import { SearchComponent } from 'app/layout/common/search/search.component';
 import { ShortcutsComponent } from 'app/layout/common/shortcuts/shortcuts.component';
 import { UserComponent } from 'app/layout/common/user/user.component';
@@ -38,11 +37,15 @@ import { Subject, takeUntil } from 'rxjs';
         NotificationsComponent,
         UserComponent,
         FuseHorizontalNavigationComponent,
-        RouterOutlet,
-        QuickChatComponent,
+        RouterOutlet
     ],
 })
 export class EnterpriseLayoutComponent implements OnInit, OnDestroy {
+	showTopButton: boolean;
+	@HostListener('window:scroll')
+	onWindowScroll() {
+		this.showTopButton = window.scrollY > 350;
+	}
     isScreenSmall: boolean;
     navigation: Navigation;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -122,5 +125,9 @@ export class EnterpriseLayoutComponent implements OnInit, OnDestroy {
             // Toggle the opened status
             navigation.toggle();
         }
+    }
+
+    scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
